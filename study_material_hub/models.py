@@ -1,4 +1,16 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+
+
+class CustomUser(AbstractUser):
+    USER_ROLES = (
+        ('student', 'Student'),
+        ('admin', 'Admin'),
+    )
+    role = models.CharField(max_length=10, choices=USER_ROLES, default='student')
+
+    def __str__(self):
+        return f"{self.username} ({self.role})"
 
 class StudyMaterial(models.Model):
     title = models.CharField(max_length=100)
@@ -9,3 +21,4 @@ class StudyMaterial(models.Model):
 
     def __str__(self):
         return self.title
+

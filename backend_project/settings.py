@@ -75,11 +75,12 @@ WSGI_APPLICATION = 'backend_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'student_db',
+        'NAME': 'user_db',
         'USER':'root',
         'PASSWORD':'',
         'HOST':'localhost',
         'PORT':'3306',
+        'options':{'charset':'utf8mb4','init_command':"SET sql_mode='STRICT_TRANS_TABLES'",},
     }
 }
 
@@ -124,3 +125,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+AUTH_USER_MODEL ='study_material_hub.CustomUser'
