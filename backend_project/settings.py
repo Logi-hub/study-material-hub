@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles','rest_framework','study_material_hub','rest_framework_simplejwt',
+    'django.contrib.staticfiles','rest_framework','study_material_hub','rest_framework_simplejwt.token_blacklist','corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -47,8 +47,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
+CORS_ALLOW_ALL_ORIGINS=True
 ROOT_URLCONF = 'backend_project.urls'
 
 TEMPLATES = [
@@ -80,7 +82,7 @@ DATABASES = {
         'PASSWORD':'',
         'HOST':'localhost',
         'PORT':'3306',
-        'options':{'charset':'utf8mb4','init_command':"SET sql_mode='STRICT_TRANS_TABLES'",},
+        'options':{'charset':'utf8','init_command':"SET sql_mode='STRICT_TRANS_TABLES'",},
     }
 }
 
@@ -129,7 +131,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
 }
 
 AUTH_USER_MODEL ='study_material_hub.CustomUser'
