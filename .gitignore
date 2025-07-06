@@ -10,4 +10,6 @@ db.sqlite3
 *.env
 *.DS_Store
 *.vscode/
-*.idea/                                       \
+*.idea/
+materials/
+3Dmaterials/                                       \
