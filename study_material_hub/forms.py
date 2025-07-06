@@ -1,7 +1,7 @@
 from django import forms
-from .models import StudyMaterial # Use your actual model name here
+from .models import StudyMaterial 
 
 class StudyMaterialForm(forms.ModelForm):
     class Meta:
         model = StudyMaterial
-        fields = ['title', 'file'] # Add other fields if needed
+        fields = ['title', 'file']

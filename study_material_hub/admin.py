@@ -15,6 +15,6 @@ class CustomUserAdmin(UserAdmin):
 
 @admin.register(UploaderProfile)
 class UploaderProfileAdmin(admin.ModelAdmin):
-    list_display= ["user", "phone", "designation", "institution", "address", "upload_code", "is_verified"]
+    list_display= ["user", "phone", "designation", "institution", "place", "upload_code", "is_verified"]
 
     
