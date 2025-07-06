@@ -62,9 +62,9 @@ from .serializers import UploadMaterialSerializer
 def upload_material(request):
 
     print("upload_material view hit")
-    data=request.data.copy()
+    data=request.data
     data['upload_by']=request.user.id
-    serializer=UploadMaterialSerializer(data=request.data)
+    serializer=UploadMaterialSerializer(data=data)
     if serializer.is_valid():
         serializer.save(uploaded_by=request.user)
         return Response(serializer.data,status=201)
